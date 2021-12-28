@@ -1,53 +1,33 @@
 
 /*
-Programming in Kotlin. Fundamentals
-Part 01. Use datatype & operations
+* Programming in Kotlin. Fundamentals
+* Part 01. Use datatype & operations
+*
+*  4. Challenge: Booleans
+*/
 
-2. Use booleans & comparison operators
+/*
+* Challenge 1: Check and store in a Boolean if a password is secure
+* For simplicity, we can say that a password is secure if has at least 10 characters
+*/
 
+/*
+* Challenge 2: Check if two people have the same name lengths.
 */
 
 fun main(arguments: Array<String>) {
-    val isProgrammingAwesome = true
 
-    println("Is programming awesome? $isProgrammingAwesome")
+    // Challenge 1
+    val password = "1234567890"
+    val isPasswordSecure = password.length >= 10
+    println(isPasswordSecure)
 
-    val myAge = 23
+    // Challenge 2
+    val name = "Pablo"
+    val anotherName = "MrBeast"
+    val sameLengths = name.length == anotherName.length
+    println(sameLengths)
 
-    val isLegalDrivingAge = myAge >= 18
-    println(isLegalDrivingAge)
-
-    val ageTim = 27
-    val isTimOlder = ageTim > myAge
-    println(isTimOlder)
-
-    val yearOfBirth = 1996
-
-    val isBornInTwentiethCentury = yearOfBirth < 2000
-    println(isBornInTwentiethCentury)
-
-    val strangerName = "Tim"
-    val myName = "Filip"
-
-    val isSameName = strangerName == myName // comparison for equality
-    println(isSameName)
-
-    val areNamesDifferent = myName != strangerName // comparison for inequality
-    println(areNamesDifferent)
-
-    println(!areNamesDifferent) // negation = inverting values = flipping
-
-    // create two separate instance
-    val firstObject = Any()
-    val secondObject = Any()
-
-    // triple equal operator (===) to check if they point to the same
-    // reference or memory addresse
-    println(firstObject === secondObject)
-    println(firstObject !== secondObject)
-
-    val isNameEmpty = myName.isEmpty()
-    println(isNameEmpty)
 
 }
 
