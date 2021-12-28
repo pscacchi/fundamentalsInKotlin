@@ -1,62 +1,54 @@
 
-/**
- * This is a documentation-style comment
- * You can reference things here, like [main] function.
- * Yoy can also reference parameters, like the [arguments]
- *
- * @param arguments
- * @author Filip
- *
- * */
-
-
-fun main(arguments: Array<String>) {
-    var myAge: Int = 23
-    val name: String = "Filip"
-    val lastName = "Babic"
-    val weight = 63.5
-
-    println(name)
-
-    println("I'm $myAge years old")
-
-    myAge += 1
-    println("I'm $myAge years old")
-
-    println("$name $lastName is $myAge years old, and weighta $weight ks")
-
-    val fullName = "$lastName, $name"
-    println(fullName)
-
-    val ageAsString = myAge.toString()
-    println(ageAsString)
-
-    val ageFromString = "35".toInt()
-    println(ageFromString)
-
-    val nameLength = fullName.length
-    println(nameLength)
-
-    // This is line comment
-
-    /*
-    * This a multiline comment.
-    * You don't have to add // before each line
-    *
-    *
-     */
-}
-
-
 /*
 Programming in Kotlin. Fundamentals
 Part 01. Use datatype & operations
 
-2. Set-Up IntelliJ IDEA
-
-- DownloadIntelliJ IDEA (Community version)
-- Use default setting
-- Create main.kt file on source directory (src)
-- All Kotlin program need a main function.
+2. Use booleans & comparison operators
 
 */
+
+fun main(arguments: Array<String>) {
+    val isProgrammingAwesome = true
+
+    println("Is programming awesome? $isProgrammingAwesome")
+
+    val myAge = 23
+
+    val isLegalDrivingAge = myAge >= 18
+    println(isLegalDrivingAge)
+
+    val ageTim = 27
+    val isTimOlder = ageTim > myAge
+    println(isTimOlder)
+
+    val yearOfBirth = 1996
+
+    val isBornInTwentiethCentury = yearOfBirth < 2000
+    println(isBornInTwentiethCentury)
+
+    val strangerName = "Tim"
+    val myName = "Filip"
+
+    val isSameName = strangerName == myName // comparison for equality
+    println(isSameName)
+
+    val areNamesDifferent = myName != strangerName // comparison for inequality
+    println(areNamesDifferent)
+
+    println(!areNamesDifferent) // negation = inverting values = flipping
+
+    // create two separate instance
+    val firstObject = Any()
+    val secondObject = Any()
+
+    // triple equal operator (===) to check if they point to the same
+    // reference or memory addresse
+    println(firstObject === secondObject)
+    println(firstObject !== secondObject)
+
+    val isNameEmpty = myName.isEmpty()
+    println(isNameEmpty)
+
+}
+
+
