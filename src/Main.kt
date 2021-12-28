@@ -3,32 +3,30 @@
 * Programming in Kotlin. Fundamentals
 * Part 01. Use datatype & operations
 *
-*  4. Challenge: Booleans
-*/
-
-/*
-* Challenge 1: Check and store in a Boolean if a password is secure
-* For simplicity, we can say that a password is secure if has at least 10 characters
-*/
-
-/*
-* Challenge 2: Check if two people have the same name lengths.
+*  5. Combine logical operators
 */
 
 fun main(arguments: Array<String>) {
+    val myAge = 12
+    val country = "USA"
 
-    // Challenge 1
-    val password = "1234567890"
-    val isPasswordSecure = password.length >= 10
-    println(isPasswordSecure)
+    val isLegalDriving =
+                (country == "Croatia" && myAge >= 18)
+                || (country == "USA" && myAge >= 16)
+    println(isLegalDriving)
 
-    // Challenge 2
-    val name = "Pablo"
-    val anotherName = "MrBeast"
-    val sameLengths = name.length == anotherName.length
-    println(sameLengths)
+    if (isLegalDriving) {
+        println("You can drive")
+    } else  {
+        println("You've got a bit more time to got")
+    }
 
+    if (myAge >= 18) println("I'm an adult") else println("I'm still underaged!")
 
+    val ageMessage = if (myAge >= 18) "I'm an adult" else "I'm still underaged!"
+    println(ageMessage)
+
+    println(if (myAge >= 18) "I'm an adult" else "I'm still underaged!")
 }
 
 
