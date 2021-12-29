@@ -3,40 +3,33 @@
 * Programming in Kotlin. Fundamentals
 * Part 02. Store Data In Collections
 *
-*  11. Introduction
+*  11. Combine data in pair&triples
 */
 
 /*
-* Part 2. Concepts
-*
-* - Pairs & triples
-*   + Groups of two to three pieces of data
-*   + Can represent classes or structured data
-* - Collections
-*   + Single construct which can hold multiple values of the same type
-*   + Can work with any type
-*   + Can be iterated over
-*   + type of collections
-*     * Array
-*     * List
-*     * Set (no duplicated)
-*     * Map (a dictionary)
-*   + Generics<?>
-*     * Classes & functions operating on yet undefined types
-*     * Types are determined when creating objects
-*     * Generics examples
-*          public fun <T>List(size: Int): List<T>
-*          class Container<T>(val value: T)
-*          val namesList = List<String>(10)
-* - Mutability
-*
-* - Collection performance
+* this can become cumbersome to maintain
+* the more value you have
 * */
-
 fun main() {
+    val fullName = Pair<String, String>("Filip", "Babic")
+    val age = 23
 
+    println("My name is ${fullName.first}, ${fullName.second}")
 
+    val (name: String, lastName: String) = fullName
+    println("My name is $name, $lastName")
 
+    val birthday = Triple(11,12, 1996)
+    val person = Pair(fullName, birthday)
+
+    val nameUsingOrdering = person.first
+    val birthdayUsingOrdering = person.second
+
+    val (fname, bday) = person
+    val (day, month, _) = bday
+
+    val yearOfBirth = bday.third
+    println("$fname was born on $day/$month, year $yearOfBirth")
 }
 
 
