@@ -3,50 +3,40 @@
 * Programming in Kotlin. Fundamentals
 * Part 02. Store Data In Collections
 *
-*  15. Create lists of data
+*  16. Challenge: array & lists.
 */
 
 /*
-* powered by Array
-* Index data access - O(1)
-* Iteration - O(n)
-* Dynamic in size: Add [O(1) append at end] & remove [O(n) shift the list]
+* CHALLENGE:
+*
+* Create an Array of your five favorite
+* games. Any game type.
+*
+* Change an element within the Array,
+* and print out the second game.
+* Transform the Array to a List that can
+* change its contents, and add two more
+* games you'd like to play or finish.
+*
+* Then remove a game you've played
+* most recently.
+*
+* Finally, print out the list of games
+* you end up with!
 * */
 
 fun main() {
-    val countries = listOf("Russia", "USA", "The Netherlands")
+    val gameArray = arrayOf("Zaxxon", "Bruce Lee", "Beach Head", "Henry's House", "Flight simulator")
 
-    println(countries)
+    gameArray[0] = "Tetis"
+    println(gameArray[1])
 
-    val mutableList = countries.toMutableList()
+    val games = gameArray.toMutableList()
+    games.add("Pac-man")
+    games.add("Double dragon")
 
-    mutableList.add("Germany")
-    mutableList.add(1, "Greece")
-
-    println(mutableList)
-
-    mutableList.addAll(3, listOf("Austria", "Poland", "Hungary"))
-    println(mutableList)
-
-    val hasBeenToJapan = "Japan" in mutableList
-    println(hasBeenToJapan)
-
-    mutableList.remove("Japan")
-    mutableList.removeAt(0)
-    mutableList.removeAll(listOf("Russia", "Japan", "USA", "Germany"))
-
-    println(mutableList)
-
-    mutableList[2] = "Croatia"
-    val combinedList = countries + mutableList
-    val emptyList = emptyList<String>()
-
-    println(mutableList)
-    println(combinedList)
-    println(emptyList)
-
-    mutableList.clear()
-    println(mutableList)
+    games.remove("Flight simulator")
+    println(games)
 }
 
 
