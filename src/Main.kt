@@ -3,40 +3,32 @@
 * Programming in Kotlin. Fundamentals
 * Part 01. Use datatype & operations
 *
-*  7. Challenge. If expressions & bollean logic
+*  9. Challenge. Nullables
 */
 
 /*
-* Check if the user data for registering an account is valid. Data is valid if
+* Declare a variable of type String? called 'password'
+* and assign a value to it
 *
-* 1. Properties are not empty
-* 2. Username has at least 6 characters.
-* 3. Password has at least 10 characters.
-* 4. The email contains a '@' and a '.'.
+* Using an if expression, check the level of password
+* strength, and assign an appropriate message to another
+* constant named 'message'. The print out the message.
 *
-* Hint.: use the 'contains()' function on a String
-*
-* Use 'if' as an expression, to assign a respective
-* error message if any of the cases fail! Then print
-* it out.
-*
-* The messages are prepared for you in the project.
-*/
+* Levels and messages are predefined and included in the
+*  project
+* */
 
 fun main() {
-    val username = "Pablos"
-    val password = "12345678"
-    val email = "pablos@endava.com"
+    var password: String? = "Pablo"
 
     val message =
-        if (username.isEmpty() || password.isEmpty() || email.isEmpty()) "You must fill all fields"
-        else if (username.length >= 6) "Username is too short"
-        else if (password.length >= 10) "Password is too short"
-        else if (email.contains("Q") && email.contains(".")) "Email doesn't contains a '@' or a '.'"
-        else "Succesfull registration!"
+        if (password == null || password.isEmpty()) "Necesitas una clave"
+        else if (password.length <= 5) "Clave debil"
+        else if (password.length <= 10) "Clave de dureza media"
+        else if (password.length <= 15) "Clave fuerte"
+        else "Super clave"
 
-    print(message)
-
+    println(message)
 }
 
 
