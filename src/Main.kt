@@ -3,32 +3,76 @@
 * Programming in Kotlin. Fundamentals
 * Part 01. Use datatype & operations
 *
-*  9. Challenge. Nullables
+*  10. Conclusion
 */
 
 /*
-* Declare a variable of type String? called 'password'
-* and assign a value to it
+* val name = "Filip"
+*    var age = 23
 *
-* Using an if expression, check the level of password
-* strength, and assign an appropriate message to another
-* constant named 'message'. The print out the message.
+*    val ageAsString: String = age.toString()
 *
-* Levels and messages are predefined and included in the
-*  project
+*   val nameLongerThanAge = name.length > ageAsString.length
+*
+*   if (nameLongerThanAge) {
+*
+*   }
+*
+*   val firstName = "Filip"
+*   val lastName = "Babic"
+*
+*   val isNameValid =
+*               firstName.isNotEmpty() &&
+*               lastName.isNotEmpty()
+*
+*   val message =
+*       if (isNameValid) "Your full name is $lastName, $firstName"
+*       else "Your name seems to be invalid"
+*
+*   val nickname: String? = null
+*   if (nickname != null) {
+*       // smart cast
+*   }
+*
+*   val myNickname = nickname ?: "Filip"
+*   val nicknameLength = nickname?.length ?: myNickname.length
 * */
 
+/*
+* Challenge.
+*
+* Create several values describing you
+* as a person, in piece of data. The
+* pieces of data are as follows:
+* - Name
+* - Last name
+* - Nickname (if exists)
+* - Country
+* - Age
+*
+* Then find your year of birth using
+* your age, and print out your data in
+* the format included in the project,
+* while following the extra rules
+* within the project
+*  */
+
 fun main() {
-    var password: String? = "Pablo"
 
-    val message =
-        if (password == null || password.isEmpty()) "Necesitas una clave"
-        else if (password.length <= 5) "Clave debil"
-        else if (password.length <= 10) "Clave de dureza media"
-        else if (password.length <= 15) "Clave fuerte"
-        else "Super clave"
+    val name = "Pablo"
+    val lastName = "Sca"
+    val nickname: String? = null
+    val country = "Argentina"
+    val age = 45
 
-    println(message)
+    val nameToPrint = if (age >= 18) "$name," else ""
+    val nicknameToPrint = nickname ?: ""
+    val yearOfBirth = 2022 - age
+
+    val userData = "$nameToPrint $nicknameToPrint $lastName, born on $yearOfBirth, in $country"
+
+    println(userData)
+
 }
 
 
