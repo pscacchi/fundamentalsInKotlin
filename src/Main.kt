@@ -3,57 +3,36 @@
 * Programming in Kotlin. Fundamentals
 * Part 02. Store Data In Collections
 *
-*  21. MCF. Loop using for loops
+*  22. MCF. Challenge. For loops
 */
 
 /*
-* FOR LOOPS
+* Challenge 1:
+* Create a range of 20 numbers, and iterate over it, printing out the numbers
 *
-* Fixed number of iterations
-* Uses Ranges
+* Challenge 2:
+* Iterate over the range in Challenge 1 again, but print every third number.
 *
-*  RANGES
-*  1..10 = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
-*
+* Challenge 3:
+* Create a decreasing range of 15 numbers, and print every second number.
 * */
 
 fun main() {
-    val visitedCountries = arrayOf(
-        "Russia", "USA", "Poland",
-        "The Netherlands", "Romania", "Greece",
-        "Germany", "Spain", "Portugal",
-        "Serbia", "Hungary", "Austria"
-    )
-
-    val rangeFromZeroToTen = 0..10
-    println(rangeFromZeroToTen)
-
-    val exclusiveRange = 0 until 10
-    println(exclusiveRange)
-
-    for (index in rangeFromZeroToTen step 2)  {
-        print(index)
+    val range = 10..30
+    for (number in range) {
+        print("$number ")
     }
-
-    println("")
-
-    for (index in 10 downTo 0) {
-        print(index)
+    println()
+    for (number in range step 3) {
+        print("$number ")
     }
+    println()
 
-    println("")
-
-    for (countryIndex in 0..visitedCountries.size -1) {
-        print("${visitedCountries[countryIndex]} ")
+    val decrRange = 15 downTo 0
+    for (number in decrRange step 2) {
+        print("$number ")
     }
-
-    println("")
-
-    for (element in visitedCountries) {
-        print("$element ")
-    }
-
-    println("")
+    println()
 }
 
 
