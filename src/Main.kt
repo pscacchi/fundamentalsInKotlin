@@ -3,34 +3,36 @@
 * Programming in Kotlin. Fundamentals
 * Part 02. Store Data In Collections
 *
-*  28. Introduction
+*  29. Create & access maps
 */
 
 /*
-* CORE CONCEPTS
+* MAP
 *
-* Using values
-* Creating Collections of Data
-* Iterating over collections
-* Utilize idiomatic Kotlin with expressions & operators
-* Handle nullables
-* Manipulate control flow
-*
-* NEW CONCEPTS
-*
-* Maps
-*   Collections of Pairs
-*   Also known as "Dictionary"
-*   Produce some output, when given certain input
-* Map entries
-*   [Key] -> [Value]
-* Sets & unique values
-*   Similar to Math-based set
-*   Unique elements
+* Collection of Paris
+* Also known as Dictionary
+* Produce some output, when certain input
 * */
 
 fun main() {
+    val videoGamesCollection = mutableMapOf<String, MutableList<String>>()
+    println(videoGamesCollection)
 
+    videoGamesCollection.put("Action", mutableListOf("Dark Souls", "Sekiro: Shadows Die Twice"))
+    println(videoGamesCollection)
+
+    val actionGames = videoGamesCollection["Action"]
+    println(actionGames)
+
+    val strategyGames = videoGamesCollection["Strategy"]
+    println(strategyGames)
+
+    val authenticationHeaders = mapOf (
+        "API_KEY" to "your-api-key",
+        "Authorization" to "auth token",
+        "content/type" to "application/json"
+    )
+    println(authenticationHeaders)
 }
 
 
