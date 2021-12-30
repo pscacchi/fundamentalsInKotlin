@@ -3,16 +3,21 @@
 * Programming in Kotlin. Fundamentals
 * Part 02. Store Data In Collections
 *
-*  19. Loop using while loops
+*  20. Challenge. While loops
 */
 
 /*
-* LOOPS
-*   - while loop
-*   - do-while loop
-*   - for loop
-* Mechanism which allows you turn to run the same piece of code multiple times
-* Exit/break condition
+* Challenge 1:
+*
+* Print number from 1 to 15, using a while loop
+*
+* Challenge 2:
+*
+* Create an array or list of names
+*
+* Using a do-while loop, and an iterator, print the names in a reverse order.
+*
+* Make sure that the iterator is within the bounds of the array's size. (from lastIndex to 0)
 * */
 
 fun main() {
@@ -22,17 +27,19 @@ fun main() {
         "Germany", "Spain", "Portugal",
         "Serbia", "Hungary", "Austria"
     )
-    var i = 0
-    while (i < visitedCountries.size) {
-        println("Country at index $i is ${visitedCountries[i]}")
-        i += 1
+
+    var idx = 1
+    while(idx <= 15) {
+        println(idx)
+        idx += 1
     }
 
-    i = 0
+    idx = visitedCountries.size - 1
     do {
-        println("Country at index $i is ${visitedCountries[i]}")
-        i += 1
-    } while ( i < visitedCountries.size)
+        println(visitedCountries[idx])
+        idx -= 1
+    } while (idx >= 0)
+
 }
 
 
