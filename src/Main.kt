@@ -3,79 +3,29 @@
 * Programming in Kotlin. Fundamentals
 * Part 02. Store Data In Collections
 *
-*  30. Work with maps
+*  31. Challenge. Maps
 */
 
 /*
-* CREATING MAPS
+* CHALLENGE
 *
-* val users = mapOf("ID13" to "Mark")
-* val empty = emptyMap<String, String>()
+* Create a map where each key is the name if a pet you have/had,
+* and the value is the animal type that pet is.
 *
-* MUTABILITY
-* Referential mutability
-*   val name = "Filip"
-*   name = "Mark" // nope
-* InternalM mutability
-*   val names = arrayOf("Filip", "Mark")
-*   names[0] = "Phillip"
-* Content mutability
-*   val map = mapOf("Strategy" to
-*        mutableListOf("HoMM3", "Civilization VI")
-*   ) // map, cannot be changed
+* E.g. Key: "Max", Value: "German Shepard Dog"
 *
-* map["Strategy"]?.add("Command & Conquer") // contents can be changed
+* Add the value to the map, then remove a value, and finally,
+* iterate over the map, printing out the entries.
 *
 * */
 
 fun main() {
+    val petMap = mutableMapOf<String, String>()
+    petMap["Max"] = "German Shepard Dog"
+    petMap["Night"] = "Pure Dog"
 
-    val videoGamesCollection = mutableMapOf<String, MutableList<String>>()
-    println(videoGamesCollection)
-
-    videoGamesCollection.put("Action", mutableListOf("Dark Souls", "Sekiro: Shadows Die Twice"))
-    println(videoGamesCollection)
-
-    val actionGames = videoGamesCollection["Action"]
-    println(actionGames)
-
-    val strategyGames = videoGamesCollection["Strategy"]
-    println(strategyGames)
-
-    val authenticationHeaders = mapOf (
-        "API_KEY" to "your-api-key",
-        "Authorization" to "auth token",
-        "content/type" to "application/json"
-    )
-    println(authenticationHeaders)
-
-    // ---
-
-    videoGamesCollection["Strategy"] = mutableListOf("Heroes of Might & Magic 3")
-    println(videoGamesCollection)
-
-    videoGamesCollection["Strategy"]?.add("Civilization VI")
-    println(videoGamesCollection)
-
-    val removedActionGames = videoGamesCollection.remove("Action")
-    println(removedActionGames)
-    println(videoGamesCollection)
-
-    //authenticationHeaders["Authorization"] = "new api key"
-    videoGamesCollection["Strategy"]?.add("Command & Conquer")
-    videoGamesCollection["Shooter"] = mutableListOf("DOOM")
-
-    for (key in videoGamesCollection.keys) {
-        println(key)
-    }
-
-    for (value in videoGamesCollection.values) {
-        println(value)
-    }
-
-    for ((key, value) in videoGamesCollection) {
-        println("Video games in the $key genre you own are: $value")
-
+    for ((name, breed) in petMap) {
+        println("My pet $name was a $breed.")
     }
 }
 
