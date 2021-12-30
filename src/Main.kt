@@ -1,46 +1,74 @@
-
 /*
 * Programming in Kotlin. Fundamentals
 * Part 05. Write functions
 *
-*  38. Challenge: Functions
+*  39. Declare & pass functions
 */
 
 /*
-* CHALLENGE 1
+* FUNCTIONS AS TYPE
 *
-* Create a function which takes in
-* two parameters - a name and a last name.
+* Functions are type too
+* Store functions in variables
+* Expect them as parameters in other
+*   functions
 *
-* Because not everyone has a last name, leave
-* the lastName parameter to be a empty String
-* if it is not passed in.
+* FUNCTION SINTAX
 *
-* Then return how long the person's full name is.
+* fun functionName(parameters): ReturnType {
+*   body
+* }
 *
-* CHALLENGE 2:
+* BASE FUNCTION SIGNATURE
+* (parameter)->ReturnType
 *
-* Overload the function from the first challenge,
-* by adding a list of String parameter, for middle
-* names, in case someone has one or more middle names.
+* LAMBDA EXAMPLE
 *
-* Use the function to return the full name length,
-* for a name with and without middle names.
-*
-* Remmember to use named arguments if needed
+* (Int)->Boolean
 * */
 
+fun validatePassword(password: String) = password.length >= 10
+
 fun main()  {
-    fun getFullNameLength(name: String, lastName: String = "") = (name + lastName).length
-    fun getFullNameLength(name: String, middleNames: List<String> = listOf<String>(), lastName: String = "") =
-        (name + lastName).length + middleNames.sumOf { it.length }
+    val email: String? = "email@mail.com"
+    val password: String? = "password"
 
-    var myNameLength = getFullNameLength("Pablo", "Sca")
-    println(myNameLength)
+    fun validateString(input: String?, inputType: String) =
+        if (input == null || input.isBlank()) {
+            false
+        } else if (inputType == "Password") {
+            input.length >= 10
+        } else if (inputType == "Email"){
+            input.contains("@")
+        } else {
+            println("Cannot verify this input")
+            false
+        }
 
-    val length = getFullNameLength("Salvador", listOf("Domingo", "Felipe", "Jacinto"), "Dali")
-    println(length)
+    fun validateString(input: String?, validator: (String) -> Boolean) =
+        if (input == null || input.isBlank()) {
+            false
+        } else {
+            validator(input)
+        }
 
+    validateString("Hello World", "Welcome message")
+
+    val isValidEmail = validateString(email, "Email")
+    println(isValidEmail)
+
+//    val isValidPassword = validateString(password) { input -> input.length >= 10 } // is not a good practice
+    val isValidPassword = validateString(password, ::validatePassword)
+    println(isValidPassword)
+
+    val passwordValidator = ::validatePassword
+    println(passwordValidator)
+
+    val validator: (String?) -> Boolean = { input ->
+        input != null && validatePassword(input)
+    }
+
+    println(validator)
 }
 
 
