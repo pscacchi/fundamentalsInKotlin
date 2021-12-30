@@ -3,36 +3,82 @@
 * Programming in Kotlin. Fundamentals
 * Part 02. Store Data In Collections
 *
-*  22. MCF. Challenge. For loops
+*  23. MCF. Iterate over collections
 */
 
 /*
-* Challenge 1:
-* Create a range of 20 numbers, and iterate over it, printing out the numbers
+* EXITING EARLY
 *
-* Challenge 2:
-* Iterate over the range in Challenge 1 again, but print every third number.
+* Continuing iterations
+* Breaking a loops
 *
-* Challenge 3:
-* Create a decreasing range of 15 numbers, and print every second number.
+* MULTI-DIMENTIONAL COLLECTIONS
+*
+*
+* NESTED LOOPS
+*
+* for (row in 0..matrix.lastIndex) {
+*   for (column in 0..matrix.lastIndex) {
+*   }
+* }
+*
+* LABEL
+*
+* labels are like checkpoints in code which you can travel.
+*
+* label@ for (row in 0..matrix.lastIndex) {
+* }
+*
+* MATRIX COMPLEXITY
+* Iteration - O(M*N)
+* In square matrix (NxN) - (O(N^2))
+*
+*
 * */
 
 fun main() {
-    val range = 10..30
-    for (number in range) {
-        print("$number ")
-    }
-    println()
-    for (number in range step 3) {
-        print("$number ")
-    }
-    println()
+    val daysOfWeek = listOf(
+        "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
+    )
 
-    val decrRange = 15 downTo 0
-    for (number in decrRange step 2) {
-        print("$number ")
+    for (day in daysOfWeek) {
+        if (day == "Monday") {
+            continue
+        }
+        println("Working!")
+        if (day == "Thursday") {
+            println("Get ready for the weekend!")
+            break
+        }
     }
-    println()
+
+    val matrix = MutableList<MutableList<String>>(5) { MutableList(5) { "" } }
+
+    for (row in 0..matrix.lastIndex) {
+        for (column in 0..matrix.lastIndex) {
+            matrix[row][column] = "$row:$column"
+        }
+    }
+
+    println(matrix)
+    println("-----")
+
+    for (row in matrix) {
+        println(row)
+    }
+
+    val thirdRowFifthColumnElement = matrix[2][4]
+    println(thirdRowFifthColumnElement)
+
+    row@ for (row in 0..5) {
+        column@ for (column in 0..5) {
+            if (column == 2 && row == 2) {
+                break@row
+            }
+            print("x\t")
+        }
+        println()
+    }
 }
 
 
