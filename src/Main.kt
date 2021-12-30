@@ -1,17 +1,19 @@
 
 /*
 * Programming in Kotlin. Fundamentals
-* Part 02. Store Data In Collections
+* Part 05. Write functions
 *
-*  34. Conclusion
+*  35. Introduction
 */
 
 /*
 * NEW CONCEPTS
 *
-* Maps
-* Map entries
-* Sets & unique values
+* Function syntax
+* Function parameters
+* Return values
+* Overloading functions
+* Functions as parameters
 * */
 
 fun main() {
