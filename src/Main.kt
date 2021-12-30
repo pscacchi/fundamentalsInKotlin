@@ -3,32 +3,36 @@
 * Programming in Kotlin. Fundamentals
 * Part 02. Store Data In Collections
 *
-*  18. Introduction
+*  19. Loop using while loops
 */
 
 /*
-* CORE CONCEPTS
-*
-* Val vs var
-* Data types (Int, String, boolean, nullable types)
-* Comparison && logical operators, converting values
-* Branching with if statements
-* Declaring functions
-* If/else expressions & scope
-* Collections
-* Big O notation & performance
-*
-* CONCEPTS
-*
-* Control flow
-* Range
-* Looping code
-* Iterating over collections
-* When expression
+* LOOPS
+*   - while loop
+*   - do-while loop
+*   - for loop
+* Mechanism which allows you turn to run the same piece of code multiple times
+* Exit/break condition
 * */
 
 fun main() {
+    val visitedCountries = arrayOf(
+        "Russia", "USA", "Poland",
+        "The Netherlands", "Romania", "Greece",
+        "Germany", "Spain", "Portugal",
+        "Serbia", "Hungary", "Austria"
+    )
+    var i = 0
+    while (i < visitedCountries.size) {
+        println("Country at index $i is ${visitedCountries[i]}")
+        i += 1
+    }
 
+    i = 0
+    do {
+        println("Country at index $i is ${visitedCountries[i]}")
+        i += 1
+    } while ( i < visitedCountries.size)
 }
 
 
