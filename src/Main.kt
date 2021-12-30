@@ -3,44 +3,59 @@
 * Programming in Kotlin. Fundamentals
 * Part 02. Store Data In Collections
 *
-*  24. MCF. Challenge. Iterating collections
+*  25. MCF. Simplify Code with when expressions
 */
 
 /*
-* Challenge:
+* WHEN EXPRESSION
+* similar switch case
 *
-* Simulate a game where you have to find the X in a matrix
-*
-* Step 1: Choose the matrix size
-* E.g. 3x3
-*
-* Step 2: Create the matrix
-*
-* Step 3: Create a nested loop which will fill the matrix with '.'
-* symbols for all of the elements, instead of 1 of your choice,
-* which will be an 'X' symbol.
-*
-* Step 4: Find the element, and print out its coordinates. Then
-* stop the loop from going further!
+* when (value) {
+*   expression -> statement
+*   expresion2 -> statement2
+*   expresion3 -> statement3
+*   else -> statemente4
 * */
 
 fun main() {
-    val size = 4
+    val myAge = 23
 
-    val matrix = MutableList(size) { MutableList(size) { '.' } }
-
-    val choiceX = 3
-    val choiceY = 2
-
-    matrix[choiceX][choiceY] = 'X'
-
-    for (row in 0 until size) {
-        for (column in 0 until size) {
-            if (matrix[column][row] == 'X') {
-                println("$column, $row")
-                break
-            }
+    when (myAge) {
+        25 -> println("Quarter century!")
+        23 -> println("Close to a quarter century!")
+        else -> {
+            println("Don't know your age!")
         }
+    }
+
+    when (myAge) {
+        in 0..12 -> println("Still a young boy!")
+        in 13..19 -> println("Teenager")
+        in 20..29 -> println("In the twenties")
+        in 30..39 -> println("In the thirties")
+        in 40..49 -> println("In my forties")
+        else -> println("I'm a wise man:]")
+    }
+
+    val message = when (myAge) {
+        in 0..12 ->"Still a young boy!"
+        in 13..19 -> "Teenager"
+        in 20..29 -> "In the twenties"
+        in 30..39 -> "In the thirties"
+        in 40..49 -> "In my forties"
+        else -> "I'm a wise man:]"
+    }
+    println(message)
+
+    val email: String? = "mail@mail.com"
+    val password: String? = "iLoveKotlin!"
+
+    when {
+        email == null || email.isEmpty() -> println("You need to choose en email!")
+        "@" !in email -> println("Your email is invalid!")
+        password == null || password.isEmpty() -> println("You nedd to choose a password!")
+        password.length < 10 -> println("Password not strong enought!")
+        else -> println("Email length: ${email.length}, Password length: ${password.length}")
     }
 }
 
