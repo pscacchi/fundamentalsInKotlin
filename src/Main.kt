@@ -3,83 +3,47 @@
 * Programming in Kotlin. Fundamentals
 * Part 02. Store Data In Collections
 *
-*  23. MCF. Iterate over collections
+*  24. MCF. Challenge. Iterating collections
 */
 
 /*
-* EXITING EARLY
+* Challenge:
 *
-* Continuing iterations
-* Breaking a loops
+* Simulate a game where you have to find the X in a matrix
 *
-* MULTI-DIMENTIONAL COLLECTIONS
+* Step 1: Choose the matrix size
+* E.g. 3x3
 *
+* Step 2: Create the matrix
 *
-* NESTED LOOPS
+* Step 3: Create a nested loop which will fill the matrix with '.'
+* symbols for all of the elements, instead of 1 of your choice,
+* which will be an 'X' symbol.
 *
-* for (row in 0..matrix.lastIndex) {
-*   for (column in 0..matrix.lastIndex) {
-*   }
-* }
-*
-* LABEL
-*
-* labels are like checkpoints in code which you can travel.
-*
-* label@ for (row in 0..matrix.lastIndex) {
-* }
-*
-* MATRIX COMPLEXITY
-* Iteration - O(M*N)
-* In square matrix (NxN) - (O(N^2))
-*
-*
+* Step 4: Find the element, and print out its coordinates. Then
+* stop the loop from going further!
 * */
 
 fun main() {
-    val daysOfWeek = listOf(
-        "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
-    )
+    val size = 4
 
-    for (day in daysOfWeek) {
-        if (day == "Monday") {
-            continue
-        }
-        println("Working!")
-        if (day == "Thursday") {
-            println("Get ready for the weekend!")
-            break
-        }
-    }
+    val matrix = MutableList(size) { MutableList(size) { '.' } }
 
-    val matrix = MutableList<MutableList<String>>(5) { MutableList(5) { "" } }
+    val choiceX = 3
+    val choiceY = 2
 
-    for (row in 0..matrix.lastIndex) {
-        for (column in 0..matrix.lastIndex) {
-            matrix[row][column] = "$row:$column"
-        }
-    }
+    matrix[choiceX][choiceY] = 'X'
 
-    println(matrix)
-    println("-----")
-
-    for (row in matrix) {
-        println(row)
-    }
-
-    val thirdRowFifthColumnElement = matrix[2][4]
-    println(thirdRowFifthColumnElement)
-
-    row@ for (row in 0..5) {
-        column@ for (column in 0..5) {
-            if (column == 2 && row == 2) {
-                break@row
+    for (row in 0 until size) {
+        for (column in 0 until size) {
+            if (matrix[column][row] == 'X') {
+                println("$column, $row")
+                break
             }
-            print("x\t")
         }
-        println()
     }
 }
+
 
 
 
