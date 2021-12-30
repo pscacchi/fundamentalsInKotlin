@@ -3,21 +3,18 @@
 * Programming in Kotlin. Fundamentals
 * Part 02. Store Data In Collections
 *
-*  20. Challenge. While loops
+*  21. MCF. Loop using for loops
 */
 
 /*
-* Challenge 1:
+* FOR LOOPS
 *
-* Print number from 1 to 15, using a while loop
+* Fixed number of iterations
+* Uses Ranges
 *
-* Challenge 2:
+*  RANGES
+*  1..10 = 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 *
-* Create an array or list of names
-*
-* Using a do-while loop, and an iterator, print the names in a reverse order.
-*
-* Make sure that the iterator is within the bounds of the array's size. (from lastIndex to 0)
 * */
 
 fun main() {
@@ -28,18 +25,35 @@ fun main() {
         "Serbia", "Hungary", "Austria"
     )
 
-    var idx = 1
-    while(idx <= 15) {
-        println(idx)
-        idx += 1
+    val rangeFromZeroToTen = 0..10
+    println(rangeFromZeroToTen)
+
+    val exclusiveRange = 0 until 10
+    println(exclusiveRange)
+
+    for (index in rangeFromZeroToTen step 2)  {
+        print(index)
     }
 
-    idx = visitedCountries.size - 1
-    do {
-        println(visitedCountries[idx])
-        idx -= 1
-    } while (idx >= 0)
+    println("")
 
+    for (index in 10 downTo 0) {
+        print(index)
+    }
+
+    println("")
+
+    for (countryIndex in 0..visitedCountries.size -1) {
+        print("${visitedCountries[countryIndex]} ")
+    }
+
+    println("")
+
+    for (element in visitedCountries) {
+        print("$element ")
+    }
+
+    println("")
 }
 
 
