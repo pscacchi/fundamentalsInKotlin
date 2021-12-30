@@ -3,46 +3,37 @@
 * Programming in Kotlin. Fundamentals
 * Part 02. Store Data In Collections
 *
-*  32. Store unique data in sets
+*  33. Challenge. Set
 */
 
 /*
-* SET
+* CHALLENGE
 *
-* Math-basep set
-* Unique elements
+* - Create a list of string, describing items
+* on your table. If items appear more than once,
+* add them multiple times, like two pens.
+*
+* - Turn that list into a set, and check if the
+* duplicate appear
+*
+* -Remove an item you don't really need on your desk,
+* e.g. car keys
+*
+* - Iterate over the items, and print them out
 *
 * */
 
 fun main() {
-    val userIds = setOf("ID1B", "ID2C", "ID3F", "ID8I")
-    println(userIds)
+    val things = listOf("cable", "cable", "pendrive", "pendrive", "phone", "antenna", "batery")
 
-    println(userIds.contains("ID3F"))
-    println("ID1B" in userIds)
+    val thingSet = things.toMutableSet()
 
-    val mutableIds = userIds.toMutableSet()
+    println(thingSet.remove("batery"))
 
-    println(mutableIds.add("ID0Z"))
-    println(mutableIds)
-
-    println(mutableIds.add("ID1B"))
-    println(mutableIds)
-
-    println(mutableIds.remove("ID1B"))
-
-    for (userId in mutableIds) {
-        println(userIds)
+    for (item in thingSet) {
+        println(item)
     }
-
-    val names = arrayOf("Phillip", "Mark", "Brian", "Joe", "Ted", "John", "Phillip")
-    println(names)
-
-    val uniqueNames = names.toSet()
-
-    println(uniqueNames)
 }
-
 
 
 
