@@ -3,30 +3,44 @@
 * Programming in Kotlin. Fundamentals
 * Part 02. Store Data In Collections
 *
-*  31. Challenge. Maps
+*  32. Store unique data in sets
 */
 
 /*
-* CHALLENGE
+* SET
 *
-* Create a map where each key is the name if a pet you have/had,
-* and the value is the animal type that pet is.
-*
-* E.g. Key: "Max", Value: "German Shepard Dog"
-*
-* Add the value to the map, then remove a value, and finally,
-* iterate over the map, printing out the entries.
+* Math-basep set
+* Unique elements
 *
 * */
 
 fun main() {
-    val petMap = mutableMapOf<String, String>()
-    petMap["Max"] = "German Shepard Dog"
-    petMap["Night"] = "Pure Dog"
+    val userIds = setOf("ID1B", "ID2C", "ID3F", "ID8I")
+    println(userIds)
 
-    for ((name, breed) in petMap) {
-        println("My pet $name was a $breed.")
+    println(userIds.contains("ID3F"))
+    println("ID1B" in userIds)
+
+    val mutableIds = userIds.toMutableSet()
+
+    println(mutableIds.add("ID0Z"))
+    println(mutableIds)
+
+    println(mutableIds.add("ID1B"))
+    println(mutableIds)
+
+    println(mutableIds.remove("ID1B"))
+
+    for (userId in mutableIds) {
+        println(userIds)
     }
+
+    val names = arrayOf("Phillip", "Mark", "Brian", "Joe", "Ted", "John", "Phillip")
+    println(names)
+
+    val uniqueNames = names.toSet()
+
+    println(uniqueNames)
 }
 
 
