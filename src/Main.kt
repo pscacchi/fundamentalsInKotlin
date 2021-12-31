@@ -2,39 +2,67 @@
 * Programming in Kotlin. Fundamentals
 * Part 06. Create classes
 *
-*  44. Challenger: Class
+*  45. Model objects using data classes
 */
 
 /*
-* CHALLENGE
+* DATA CLASSES
 *
-* Create a class which represents a Movie,
-* a Video Game or a Song. Add appropriate
-* properties like "name", "genre", "length"
+* all values available
+* ability to compare them
+* deep comparison and destucturing
+* make copy of structure
+* immutability => copy
 *
-* Add methods which format the properties
-* in a String for you to print out.
+* DATA CLASSES
 *
-* Create a few objects of the class type &
-* print out their data.
+* copy()
+* toString()
+* componentN()
+* equals()
+* hashCode()
 *
+* SYNTAX
+*
+* data class Car(
+*       val name: String,
+*       val year: Int,
+*       val color: String)
 * */
 
-class ArtWork(
-    private val name: String,
-    private val genre: String,
-    private val length: Int,
-    private val type: String
-) {
-    fun getResume() = "$name is a $type del genre $genre with a length of $length seconds"
-}
+data class Person(
+    val name: String,
+    val lastName: String?,
+    val age: Int,
+    val pet: Pet)
+
+data class Pet(
+    val name: String,
+    val animalType: String)
+
 
 fun main() {
-    val movie = ArtWork("Ninja attack", "action", 98 * 60,"movie")
-    val song = ArtWork("I fell good", "rock", 210, "song")
+    val dog = Pet("Max", "German Shepard Dog")
+    val filip = Person("Filip", "BBabic", 23, dog)
 
-    println(movie.getResume())
-    println(song.getResume())
+    println(filip)
+
+    val olderFilip = filip.copy(age = filip.age + 20)
+    println(olderFilip)
+
+    val (name, _, age, pet) = olderFilip
+    println(pet)
+
+    val firstName = olderFilip.component1()
+    println(firstName)
+
+    var filipTwo = filip
+    println(filipTwo == filip)
+    println(filipTwo === filip)
+
+    filipTwo = filip.copy()
+    println(filipTwo == filip)
+    println(filipTwo === filip)
 }
 
 
