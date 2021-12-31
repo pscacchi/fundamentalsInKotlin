@@ -1,31 +1,29 @@
 /*
 * Programming in Kotlin. Fundamentals
-* Part 05. Write functions
+* Part 06. Create classes
 *
-*  40. Conclusion
+*  41. Introduction
 */
 
 /*
 * NEW CONCEPTS
 *
-* Function syntax
-* Function parameters
-* Returning values
-* Overloading functions
-* Functions as parameters
+* Classes
+* Custom data types
+* Properties, methods, mutability
+* Modifiers
 *
-* FUNCTIONS FUNCTIONALITY
+* CLASSES
 *
-* Lambdas: (Int)->Boolean
-* Default parameters
-* Fun printRange(range: IntRange = 0..10) {
-*   ...
-* }
-* Named arguments:
-* printRange(range = 5..15)
+* Well-defined group of data
+* Always represents the data defined in the class
+* Properties - state of the class
+* Methods - behavior of the class
+* Contructor - a special function of a classes which
+* creates an object of the class.
+*
+*
 * */
-
-fun validatePassword(password: String) = password.length >= 10
 
 fun main()  {
 
